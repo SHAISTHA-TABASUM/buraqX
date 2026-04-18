@@ -126,69 +126,14 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 5.9rem;
-  height: 3.6rem;
+  width: 7.2rem;
+  height: 3.8rem;
 }
 
-.brand-bx {
-  position: relative;
+.brand-logo {
   display: block;
   width: 100%;
   height: 100%;
-}
-
-.brand-b,
-.brand-k {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: "Orbitron", sans-serif;
-  font-weight: 800;
-  font-size: 3.25rem;
-  line-height: 1;
-}
-
-.brand-b {
-  left: 0;
-  background: linear-gradient(180deg, var(--silver-a), var(--silver-b));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  letter-spacing: -0.18em;
-}
-
-.brand-k {
-  right: 0.05rem;
-  background: linear-gradient(180deg, #9fb5a7, #315747 82%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  letter-spacing: -0.18em;
-}
-
-.brand-slash {
-  position: absolute;
-  border-radius: 999px;
-}
-
-.brand-slash-main {
-  left: 2.55rem;
-  top: -0.1rem;
-  width: 0.8rem;
-  height: 3.9rem;
-  transform: rotate(42deg);
-  background: linear-gradient(180deg, #f4dea0 0%, #cfaf5a 50%, #8d6918 100%);
-  box-shadow: 0 0 18px rgba(207, 175, 90, 0.36);
-}
-
-.brand-slash-cut {
-  left: 2.95rem;
-  top: 0.75rem;
-  width: 0.32rem;
-  height: 1.3rem;
-  transform: rotate(42deg);
-  background: linear-gradient(180deg, #f0f4fa 0%, #9ba2ae 100%);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.14);
 }
 
 .brand-copy {
@@ -266,6 +211,7 @@ a {
 .footer-card h2 {
   margin: 0;
   font-family: "Orbitron", sans-serif;
+  
   line-height: 0.95;
   text-transform: uppercase;
 }
