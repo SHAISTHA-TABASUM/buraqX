@@ -167,6 +167,16 @@ a {
   transition: color 180ms ease, transform 180ms ease;
 }
 
+.nav-links a.is-active {
+  color: var(--text);
+  text-shadow: 0 0 18px rgba(127, 231, 221, 0.18);
+}
+
+.nav-links a.is-active:not(.nav-cta) {
+  padding-bottom: 0.16rem;
+  border-bottom: 1px solid rgba(127, 231, 221, 0.38);
+}
+
 .nav-links a:hover {
   color: var(--teal);
   transform: translateY(-1px);
@@ -195,6 +205,28 @@ a {
   align-items: center;
   gap: 2rem;
   padding: clamp(3rem, 7vw, 6rem) 0 2rem;
+}
+
+.page-header {
+  position: relative;
+  padding: 1.5rem clamp(1.25rem, 2vw, 2rem) 0;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(0, 255, 156, 0.08), transparent 28%),
+    radial-gradient(circle at 86% 12%, rgba(207, 175, 90, 0.12), transparent 22%),
+    linear-gradient(180deg, rgba(8, 14, 13, 0.78), rgba(7, 18, 17, 0.42));
+  pointer-events: none;
+}
+
+.page-hero {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
 }
 
 .eyebrow {
@@ -584,9 +616,21 @@ a {
 }
 
 .feature-grid,
-.services-grid {
+.services-grid,
+.story-grid,
+.problem-layout,
+.solution-layout,
+.benefit-grid,
+.process-steps,
+.team-grid {
   display: grid;
   gap: 1.5rem;
+}
+
+.story-grid,
+.problem-layout,
+.solution-layout {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .feature-grid {
@@ -595,7 +639,10 @@ a {
 
 .glass-card,
 .service-card,
-.footer-card {
+.footer-card,
+.step-card,
+.partners-card,
+.team-card {
   position: relative;
   border: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(10, 25, 22, 0.82), rgba(8, 18, 18, 0.62));
@@ -687,6 +734,330 @@ a {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.story-media,
+.story-copy,
+.problem-video,
+.problem-details,
+.solution-copy {
+  min-height: 100%;
+}
+
+.story-media,
+.problem-video {
+  overflow: hidden;
+}
+
+.story-badge {
+  display: inline-flex;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid rgba(127, 231, 221, 0.28);
+  border-radius: 999px;
+  color: var(--teal);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.story-visual {
+  position: relative;
+  min-height: 22rem;
+  margin-top: 1.4rem;
+  border-radius: 26px;
+  border: 1px solid rgba(127, 231, 221, 0.12);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(143, 238, 120, 0.18), transparent 26%),
+    linear-gradient(180deg, rgba(8, 22, 20, 0.94), rgba(8, 18, 17, 0.54));
+  overflow: hidden;
+}
+
+.story-orbit,
+.story-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.story-orbit {
+  border: 1px solid rgba(127, 231, 221, 0.2);
+}
+
+.story-orbit-one {
+  width: 12rem;
+  height: 12rem;
+}
+
+.story-orbit-two {
+  width: 18rem;
+  height: 18rem;
+}
+
+.story-core {
+  display: grid;
+  place-items: center;
+  width: 8.5rem;
+  height: 8.5rem;
+  gap: 0.3rem;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 194, 255, 0.3), rgba(10, 24, 23, 0.9));
+  box-shadow: 0 0 30px rgba(0, 194, 255, 0.12);
+}
+
+.story-core span {
+  color: var(--text);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.story-copy p,
+.problem-details p,
+.solution-copy p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.story-copy h3,
+.problem-details h3 {
+  margin: 0 0 1rem;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.15;
+}
+
+.video-shell {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(3, 12, 11, 0.9);
+}
+
+.video-shell iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.problem-points {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.issue-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(127, 231, 221, 0.1);
+  border-radius: 18px;
+  background: rgba(8, 20, 19, 0.55);
+}
+
+.issue-index,
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  color: #ffb0a5;
+  background: rgba(142, 35, 35, 0.18);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+}
+
+.issue-item strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 1rem;
+}
+
+.issue-item p {
+  margin: 0;
+}
+
+.benefit-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.benefit-card {
+  min-height: 100%;
+}
+
+.benefit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  color: var(--teal);
+  background: rgba(0, 194, 255, 0.1);
+  border: 1px solid rgba(0, 194, 255, 0.18);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+}
+
+.process-steps {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.step-card {
+  padding: 1.8rem 1.5rem;
+  border-radius: 24px;
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.step-card:hover,
+.team-card:hover,
+.partners-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(127, 231, 221, 0.3);
+}
+
+.step-card h3 {
+  margin: 1rem 0 0.75rem;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.1rem;
+}
+
+.step-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.partners-card {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 28px;
+}
+
+.partner-logo {
+  display: grid;
+  place-items: center;
+  min-height: 6.5rem;
+  padding: 1rem;
+  border: 1px solid rgba(127, 231, 221, 0.12);
+  border-radius: 20px;
+  background: rgba(8, 20, 19, 0.5);
+  color: rgba(245, 247, 242, 0.82);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-align: center;
+}
+
+.team-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+}
+
+.contact-form-card h3,
+.contact-info-card h3 {
+  margin: 0 0 1.25rem;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.contact-form span {
+  color: rgba(245, 247, 242, 0.88);
+  font-size: 0.9rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(127, 231, 221, 0.18);
+  border-radius: 16px;
+  color: var(--text);
+  font: inherit;
+  background: rgba(7, 18, 17, 0.76);
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgba(127, 231, 221, 0.42);
+  box-shadow: 0 0 0 3px rgba(0, 194, 255, 0.08);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.contact-call {
+  min-width: 10rem;
+}
+
+.team-card {
+  overflow: hidden;
+  border-radius: 28px;
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.team-card img {
+  display: block;
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+}
+
+.team-copy {
+  padding: 1.4rem 1.4rem 1.6rem;
+}
+
+.team-copy h3 {
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.15rem;
+}
+
+.team-copy p {
+  margin: 0.6rem 0 0;
+  color: var(--muted);
+}
+
 .service-card {
   padding: 2rem;
   border-radius: 28px;
@@ -716,6 +1087,12 @@ a {
   line-height: 1.75;
 }
 
+.service-detail {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(127, 231, 221, 0.1);
+}
+
 .powered-note {
   margin-top: 1.8rem;
   padding: 1rem 1.2rem;
@@ -738,6 +1115,81 @@ a {
   gap: 1.5rem;
   padding: 2rem;
   border-radius: 28px;
+}
+
+.footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.services-download {
+  margin-top: 1.4rem;
+}
+
+.pricing-card {
+  min-height: auto;
+}
+
+.pricing-table-wrap {
+  overflow-x: auto;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 1.15rem 1rem;
+  border: 1px solid rgba(175, 235, 209, 0.24);
+  text-align: left;
+  vertical-align: top;
+}
+
+.pricing-table th {
+  color: var(--text);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.95rem;
+}
+
+.pricing-table td {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.pricing-table td:first-child {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.pricing-workflow-heading {
+  margin-top: 2rem;
+}
+
+.workflow-list {
+  margin: 0;
+  padding-left: 1.4rem;
+  color: var(--muted);
+}
+
+.workflow-list li {
+  margin-top: 0.9rem;
+  line-height: 1.8;
+}
+
+.workflow-list li:first-child {
+  margin-top: 0;
+}
+
+.workflow-list strong {
+  color: var(--text);
+}
+
+.footer-cta {
+  min-width: 11rem;
 }
 
 .footer-card h2 {
@@ -847,6 +1299,14 @@ a {
   .hero-content,
   .feature-grid,
   .services-grid,
+  .story-grid,
+  .problem-layout,
+  .solution-layout,
+  .benefit-grid,
+  .team-grid,
+  .contact-layout,
+  .partners-card,
+  .process-steps,
   .footer-card {
     grid-template-columns: 1fr;
   }
@@ -861,6 +1321,10 @@ a {
 
   .hero-stats {
     grid-template-columns: 1fr;
+  }
+
+  .partners-card {
+    display: grid;
   }
 
   .footer-card {
@@ -886,6 +1350,10 @@ a {
     justify-content: flex-start;
   }
 
+  .nav-links a {
+    font-size: 0.92rem;
+  }
+
   .hero-copy h1 {
     font-size: clamp(1.95rem, 9vw, 2.95rem);
   }
@@ -908,6 +1376,28 @@ a {
 
   .field-hud {
     inset: auto 0.9rem 0.9rem;
+  }
+
+  .section {
+    padding-bottom: 4rem;
+  }
+
+  .glass-card,
+  .service-card,
+  .step-card,
+  .team-copy,
+  .partners-card,
+  .footer-card {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+  .story-visual {
+    min-height: 18rem;
+  }
+
+  .team-card img {
+    height: 16rem;
   }
 
   .floating-chat {
