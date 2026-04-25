@@ -6,10 +6,10 @@
   <title>Buraq Agri-Tech</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Outfit:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-home">
   <div class="page-shell">
     <header class="hero hero-home">
       <div class="hero-bg"></div>
@@ -54,6 +54,8 @@
           <a href="index.html" class="is-active">Home</a>
           <a href="about.html">About</a>
           <a href="services.html">Services</a>
+          <a href="our-platform.html">Our Platform</a>
+          <a href="learning.html">Learning</a>
           <a href="team.html">Team</a>
           <a href="contact.html" class="nav-cta">Contact</a>
         </div>
@@ -95,28 +97,71 @@
         </div>
 
         <div class="hero-visual reveal reveal-delay">
-          <div class="drone-card">
+          <div class="drone-card hero-flight-card">
             <div class="scan-ring scan-ring-one"></div>
             <div class="scan-ring scan-ring-two"></div>
-            <div class="drone-body">
-              <span class="arm arm-top-left"></span>
-              <span class="arm arm-top-right"></span>
-              <span class="arm arm-bottom-left"></span>
-              <span class="arm arm-bottom-right"></span>
-              <span class="rotor rotor-top-left"></span>
-              <span class="rotor rotor-top-right"></span>
-              <span class="rotor rotor-bottom-left"></span>
-              <span class="rotor rotor-bottom-right"></span>
-              <span class="core"></span>
-              <span class="lens"></span>
-            </div>
-            <div class="field-hud">
-              <span class="hud-line hud-line-a"></span>
-              <span class="hud-line hud-line-b"></span>
-              <span class="hud-line hud-line-c"></span>
-              <span class="hud-dot hud-dot-a"></span>
-              <span class="hud-dot hud-dot-b"></span>
-              <span class="hud-dot hud-dot-c"></span>
+            <div class="flight-grid" aria-hidden="true"></div>
+            <svg class="flight-trail" viewBox="0 0 520 260" aria-hidden="true">
+              <defs>
+                <linearGradient id="trailGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="rgba(0, 255, 156, 0)"></stop>
+                  <stop offset="25%" stop-color="rgba(0, 255, 156, 0.95)"></stop>
+                  <stop offset="65%" stop-color="rgba(0, 194, 255, 0.55)"></stop>
+                  <stop offset="100%" stop-color="rgba(0, 194, 255, 0)"></stop>
+                </linearGradient>
+                <filter id="trailBlur">
+                  <feGaussianBlur stdDeviation="1.2"></feGaussianBlur>
+                </filter>
+              </defs>
+              <path class="trail-path trail-path-main" d="M70 155 C 130 72, 225 86, 258 124 S 394 215, 454 168"></path>
+              <path class="trail-path trail-path-alt" d="M100 178 C 176 232, 262 228, 318 156 S 406 101, 446 138"></path>
+            </svg>
+            <span class="trail-node trail-node-start" aria-hidden="true"></span>
+            <span class="trail-node trail-node-end" aria-hidden="true"></span>
+            <div class="drone-flight" aria-hidden="true">
+              <div class="flight-shadow"></div>
+              <div class="drone-model">
+                <span class="flight-prop prop-front-left"></span>
+                <span class="flight-prop prop-front-right"></span>
+                <span class="flight-prop prop-back-left"></span>
+                <span class="flight-prop prop-back-right"></span>
+                <svg class="real-drone" viewBox="0 0 360 200" role="img" aria-label="Realistic agricultural drone">
+                  <defs>
+                    <linearGradient id="droneShell" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#f5f7fb"></stop>
+                      <stop offset="48%" stop-color="#b3bac3"></stop>
+                      <stop offset="100%" stop-color="#4d5660"></stop>
+                    </linearGradient>
+                    <linearGradient id="droneMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#d5dae0"></stop>
+                      <stop offset="100%" stop-color="#6f7780"></stop>
+                    </linearGradient>
+                    <linearGradient id="droneGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#122d2b"></stop>
+                      <stop offset="100%" stop-color="#264e4c"></stop>
+                    </linearGradient>
+                    <radialGradient id="droneLight" cx="50%" cy="50%" r="60%">
+                      <stop offset="0%" stop-color="#87fff3"></stop>
+                      <stop offset="70%" stop-color="#3ad4be"></stop>
+                      <stop offset="100%" stop-color="#0b4138"></stop>
+                    </radialGradient>
+                  </defs>
+                  <g opacity="0.95">
+                    <path fill="url(#droneMetal)" d="M84 100 35 74c-7-4-14 5-8 11l55 33c9 5 17-8 8-11Z"></path>
+                    <path fill="url(#droneMetal)" d="M278 100 327 74c7-4 14 5 8 11l-55 33c-9 5-17-8-8-11Z"></path>
+                    <path fill="url(#droneMetal)" d="M108 105 54 136c-7 4-3 14 5 12l61-19c10-3 4-17-6-13Z"></path>
+                    <path fill="url(#droneMetal)" d="M252 105 306 136c7 4 3 14-5 12l-61-19c-10-3-4-17 6-13Z"></path>
+                    <path fill="url(#droneShell)" d="M108 70c18-16 49-25 73-25 25 0 57 9 72 25 13 13 20 25 20 40 0 21-15 31-45 34H135c-32-3-48-13-48-34 0-15 8-28 21-40Z"></path>
+                    <rect x="132" y="69" width="98" height="47" rx="20" fill="url(#droneGlass)"></rect>
+                    <path fill="url(#droneMetal)" d="M156 143h51l-7 18c-2 5-6 9-11 9h-15c-5 0-9-4-11-9l-7-18Z"></path>
+                    <circle cx="181" cy="157" r="14" fill="url(#droneLight)"></circle>
+                    <circle cx="126" cy="87" r="4" fill="#a7ffdd"></circle>
+                    <circle cx="236" cy="87" r="4" fill="#a7ffdd"></circle>
+                    <path fill="#1f3634" opacity="0.48" d="M120 120c13 7 37 10 61 10 24 0 49-3 62-10-11 15-29 21-62 24h-2c-31-3-49-9-59-24Z"></path>
+                    <circle cx="181" cy="161" r="3" fill="#d7fffb"></circle>
+                  </g>
+                </svg>
+              </div>
             </div>
             <div class="visual-caption">
               <p>Quick field support</p>
